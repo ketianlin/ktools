@@ -258,3 +258,29 @@ func (tu tUtil) Get0NextMonth(t time.Time) time.Time {
 func (tu tUtil) GetMonthDays(t time.Time) int {
 	return int(tu.Get0NextMonth(t).Sub(tu.Get0Month(t)).Hours() / 24)
 }
+
+func (tu tUtil) StringToTime(str string, formatStr ...string) (time.Time, error) {
+	fmtStr := "2006-01-02 15:04:05"
+	if len(formatStr) > 0 {
+		fmtStr = formatStr[0]
+	}
+	t, err := time.Parse(fmtStr, str)
+	if err != nil {
+		return time.Time{}, err
+	}
+	return t, nil
+}
+
+func (tu tUtil) Int64ToTime(sou int64) time.Time {
+	ts := sou
+	if ts < 1e10 { //如果是秒
+		return time.Unix(ts, 0)
+	} else if ts < 1e14 { // 如果ts是豪秒，则将其转换为纳秒
+		return time.Unix(0, ts*1e6)
+	} else if ts < 1e16 { // 如果ts是微秒，则将其转换为纳秒
+		return time.Unix(0, ts*1e3)
+	} else if ts < 9e18 { //纳秒
+		return time.Unix(0, ts)
+	}
+	return time.Time{}
+}

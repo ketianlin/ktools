@@ -167,12 +167,6 @@ func (e Enter[T]) CopyStruct(src, dst any) {
 	e.deepCopy(src, dst)
 }
 
-func (e Enter[T]) DeepCopy(src any) T {
-	var dst T
-	e.deepCopy(src, &dst)
-	return dst
-}
-
 func (e Enter[T]) Clone(src any, dst any) {
 	jsonUtil.FromJSON(jsonUtil.ToJson(src), dst)
 }
