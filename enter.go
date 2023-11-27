@@ -2,6 +2,7 @@ package ktools
 
 import (
 	"github.com/ketianlin/ktools/crypto"
+	"github.com/ketianlin/ktools/excel"
 	fileT "github.com/ketianlin/ktools/file"
 	jsonT "github.com/ketianlin/ktools/json"
 	"github.com/ketianlin/ktools/jwt"
@@ -16,10 +17,11 @@ import (
 )
 
 var (
-	Crypto = new(crypto.Enter)       // 加密工具
+	Crypto = new(crypto.Enter) // 加密工具
+	Excel  = new(excel.Excel)
 	File   = new(fileT.Enter)        // 文件工具
 	Json   = new(jsonT.Enter)        // json工具
-	Jwt    = new(jwt.Enter)          // uuid工具
+	Jwt    = new(jwt.Enter)          // jwt工具
 	Map    = new(mapT.Enter)         // map工具
 	Math   = new(math.Enter)         // 计算工具
 	Slice  = new(slice.Enter)        // 切片工具
