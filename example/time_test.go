@@ -25,4 +25,7 @@ func TestTimeUtil(t *testing.T) {
 	var sou2 int64 = 1700807375839
 	st2 := ktools.Time.TUtil.Int64ToTime(sou2)
 	fmt.Printf("tt2: %T\t%#v\n", st2, st2.Format("2006-01-02 15:04:05"))
+
+	curTime := ktools.Time.TFmt.GetNowDateTime()
+	fmt.Println(curTime)
 }

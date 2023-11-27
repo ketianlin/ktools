@@ -4,6 +4,7 @@ import (
 	"github.com/ketianlin/ktools/crypto"
 	fileT "github.com/ketianlin/ktools/file"
 	jsonT "github.com/ketianlin/ktools/json"
+	"github.com/ketianlin/ktools/jwt"
 	mapT "github.com/ketianlin/ktools/map"
 	"github.com/ketianlin/ktools/math"
 	"github.com/ketianlin/ktools/slice"
@@ -18,6 +19,7 @@ var (
 	Crypto = new(crypto.Enter)       // 加密工具
 	File   = new(fileT.Enter)        // 文件工具
 	Json   = new(jsonT.Enter)        // json工具
+	Jwt    = new(jwt.Enter)          // uuid工具
 	Map    = new(mapT.Enter)         // map工具
 	Math   = new(math.Enter)         // 计算工具
 	Slice  = new(slice.Enter)        // 切片工具
