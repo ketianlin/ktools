@@ -4,6 +4,7 @@ import (
 	"github.com/ketianlin/ktools/crypto"
 	"github.com/ketianlin/ktools/excel"
 	fileT "github.com/ketianlin/ktools/file"
+	httpT "github.com/ketianlin/ktools/http"
 	jsonT "github.com/ketianlin/ktools/json"
 	"github.com/ketianlin/ktools/jwt"
 	mapT "github.com/ketianlin/ktools/map"
@@ -19,7 +20,8 @@ import (
 var (
 	Crypto = new(crypto.Enter) // 加密工具
 	Excel  = new(excel.Excel)
-	File   = new(fileT.Enter)        // 文件工具
+	File   = new(fileT.Enter) // 文件工具
+	Http   = new(httpT.Enter[any])
 	Json   = new(jsonT.Enter)        // json工具
 	Jwt    = new(jwt.Enter)          // jwt工具
 	Map    = new(mapT.Enter)         // map工具

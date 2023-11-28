@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/ketianlin/ktools"
 	"testing"
+	"time"
 )
 
 func TestTimeUtil(t *testing.T) {
@@ -28,4 +29,29 @@ func TestTimeUtil(t *testing.T) {
 
 	curTime := ktools.Time.TFmt.GetNowDateTime()
 	fmt.Println(curTime)
+}
+
+func TestTime3(tt *testing.T) {
+	str1 := "2023-11-11T15:00:10Z"
+	ttt, _ := ktools.Time.TUtil.StringToTime2(str1)
+	fmt.Printf("tt1: %T\t%v\n", ttt, ttt)
+}
+
+func TestTime2(tt *testing.T) {
+	//fmt.Println(time.Now())
+	t := "2019-10-10 10:10:10"
+	t1, _ := time.Parse("2006-01-02 15:04:05", t)
+	t2, _ := time.ParseInLocation("2006-01-02 15:04:05", t, time.Local)
+	fmt.Println(t1)
+	fmt.Println(t2)
+	fmt.Println(t1.Equal(t2))
+	var cstSh, _ = time.LoadLocation("Asia/Shanghai") //上海
+	fmt.Println("SH : ", time.Now().In(cstSh).Format("2006-01-02 15:04:05"))
+
+	//时区转换
+	fmt.Println("***************")
+	t = "2021-01-11T23:46:05Z"
+	t1, _ = time.Parse("2006-01-02T15:04:05Z", t)
+	fmt.Println(t)
+	fmt.Println("SH : ", t1.In(cstSh).Format("2006-01-02 15:04:05"))
 }

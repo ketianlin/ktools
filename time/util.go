@@ -284,3 +284,15 @@ func (tu tUtil) Int64ToTime(sou int64) time.Time {
 	}
 	return time.Time{}
 }
+
+func (tu tUtil) StringToTime2(str string, formatStr ...string) (time.Time, error) {
+	fmtStr := "2006-01-02T15:04:05Z"
+	if len(formatStr) > 0 {
+		fmtStr = formatStr[0]
+	}
+	t, err := time.Parse(fmtStr, str)
+	if err != nil {
+		return time.Time{}, err
+	}
+	return t, nil
+}
