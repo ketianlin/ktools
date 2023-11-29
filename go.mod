@@ -18,7 +18,12 @@ require (
 	github.com/araddon/gou v0.0.0-20211019181548-e7d08105776c // indirect
 	github.com/bitly/go-hostpool v0.1.0 // indirect
 	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
+	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
+	github.com/go-playground/locales v0.14.1 // indirect
+	github.com/go-playground/universal-translator v0.18.1 // indirect
+	github.com/go-playground/validator/v10 v10.16.0 // indirect
 	github.com/klauspost/compress v1.17.0 // indirect
+	github.com/leodido/go-urn v1.2.4 // indirect
 	github.com/mattbaird/elastigo v0.0.0-20170123220020-2fe47fd29e4b // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
