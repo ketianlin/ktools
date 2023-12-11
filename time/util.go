@@ -296,3 +296,16 @@ func (tu tUtil) StringToTime2(str string, formatStr ...string) (time.Time, error
 	}
 	return t, nil
 }
+
+// RFC3339TimeStringToFormatString 2023-09-27T08:00:54+08:00 字符串时间格式 转自定义时间格式字符串
+func (tu tUtil) RFC3339TimeStringToFormatString(str string, formatStr ...string) (string, error) {
+	fmtStr := "2006-01-02 15:04:05"
+	if len(formatStr) > 0 {
+		fmtStr = formatStr[0]
+	}
+	t, err := time.Parse(time.RFC3339, str)
+	if err != nil {
+		return "", err
+	}
+	return t.Format(fmtStr), nil
+}

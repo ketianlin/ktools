@@ -31,6 +31,14 @@ func TestTimeUtil(t *testing.T) {
 	fmt.Println(curTime)
 }
 
+func TestTime5(tt *testing.T) {
+	t1 := "2023-09-27T08:00:54+08:00"
+	formatString, _ := ktools.Time.TUtil.RFC3339TimeStringToFormatString(t1)
+	fmt.Println(formatString)
+	formatString2, _ := ktools.Time.TUtil.RFC3339TimeStringToFormatString(t1, "2006/01/02 15:04:05")
+	fmt.Println(formatString2)
+}
+
 func TestTime3(tt *testing.T) {
 	str1 := "2023-11-11T15:00:10Z"
 	ttt, _ := ktools.Time.TUtil.StringToTime2(str1)
@@ -46,7 +54,11 @@ func TestTime2(tt *testing.T) {
 	fmt.Println(t2)
 	fmt.Println(t1.Equal(t2))
 	var cstSh, _ = time.LoadLocation("Asia/Shanghai") //上海
+	fmt.Println("SH-now : ", time.Now().In(cstSh))
+	fmt.Println("SH-now2 : ", time.Now())
 	fmt.Println("SH : ", time.Now().In(cstSh).Format("2006-01-02 15:04:05"))
+	fmt.Println("SH-t1 : ", t1.In(cstSh).Format("2006-01-02 15:04:05"))
+	fmt.Println("SH-t2 : ", t2.In(cstSh).Format("2006-01-02 15:04:05"))
 
 	//时区转换
 	fmt.Println("***************")
