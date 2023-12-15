@@ -3,6 +3,7 @@ package example
 import (
 	"fmt"
 	"github.com/ketianlin/ktools"
+	"math/rand"
 	"testing"
 	"time"
 )
@@ -66,4 +67,21 @@ func TestTime2(tt *testing.T) {
 	t1, _ = time.Parse("2006-01-02T15:04:05Z", t)
 	fmt.Println(t)
 	fmt.Println("SH : ", t1.In(cstSh).Format("2006-01-02 15:04:05"))
+}
+
+func TestTime6(tt *testing.T) {
+	curTime := time.Now()
+	end := curTime.Format("2006-01-02 15:04:05")
+	start := ktools.Time.TCalc.SubtractMinutes(curTime, 30).Format("2006-01-02 15:04:05")
+	fmt.Printf("start: %T\t%v\n", start, start)
+	fmt.Printf("end: %T\t%v\n", end, end)
+}
+
+func TestTime7(tt *testing.T) {
+	a := fmt.Sprintf("%s%d", ktools.Time.TUtil.GetDate("20060102"), rand.Intn(9000)+1000)
+	fmt.Println(a)
+	for i := 0; i < 300; i++ {
+		num := ktools.Math.Random.GenerateSpecifyIntervalNumber(1000, 9000)
+		fmt.Println(num)
+	}
 }

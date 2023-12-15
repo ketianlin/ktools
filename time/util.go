@@ -114,14 +114,22 @@ func (tu tUtil) ConvertDateFormat(timeStr string, format string) string {
 	return tu.DateFormat(t, format)
 }
 
-func (tu tUtil) GetNowDateTime() string {
+func (tu tUtil) GetNowDateTime(formatStr ...string) string {
+	fmtStr := "2006-01-02 15:04:05"
+	if len(formatStr) > 0 {
+		fmtStr = formatStr[0]
+	}
 	var cstZone = time.FixedZone("CST", 8*3600)
-	return time.Now().In(cstZone).Format("2006-01-02 15:04:05")
+	return time.Now().In(cstZone).Format(fmtStr)
 }
 
-func (tu tUtil) GetDate() string {
+func (tu tUtil) GetDate(formatStr ...string) string {
+	fmtStr := "2006-01-02"
+	if len(formatStr) > 0 {
+		fmtStr = formatStr[0]
+	}
 	var cstZone = time.FixedZone("CST", 8*3600)
-	return time.Now().In(cstZone).Format("2006-01-02")
+	return time.Now().In(cstZone).Format(fmtStr)
 }
 
 // WeekByDate 判断时间是当年的第几周

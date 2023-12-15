@@ -86,3 +86,8 @@ func (rm randomMath) UpperEnNumber(length int) string {
 	src := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	return rm.Generate(src, length)
 }
+
+// GenerateSpecifyIntervalNumber 创建一个指定区间的随机数字
+func (rm randomMath) GenerateSpecifyIntervalNumber(begin, end int) int {
+	return rand.Intn(end) + begin
+}
